@@ -1,0 +1,79 @@
+[
+  {
+    "key": "romanesco",
+    "file": "romanesco.jpg",
+    "width": 1400,
+    "height": 1120,
+    "author": "Ivar Leidus",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Romanesco_broccoli_(Brassica_oleracea).jpg",
+    "what": "Romanesco broccoli (Brassica oleracea), photographed on 3 January 2021."
+  },
+  {
+    "key": "fern",
+    "file": "fern.jpg",
+    "width": 1400,
+    "height": 1400,
+    "author": "The Cosmonaut",
+    "license": "CC BY-SA 2.5 ca",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/ca/deed.en",
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Matteuccia_struthiopteris_fiddleheads.jpg",
+    "what": "Ostrich fern (Matteuccia struthiopteris) fiddleheads unrolling, photographed on 6 May 2020."
+  },
+  {
+    "key": "delta",
+    "file": "delta.jpg",
+    "width": 1400,
+    "height": 1400,
+    "author": "NASA / USGS EROS Data Center (Landsat 7)",
+    "license": "Public domain",
+    "license_url": "",
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Lena_River_Delta_-_Landsat_2000.jpg",
+    "what": "False-colour Landsat 7 image of the Lena River Delta in Siberia, Russia, acquired on 27 February 2000."
+  },
+  {
+    "key": "lightning",
+    "file": "lightning.jpg",
+    "width": 1400,
+    "height": 933,
+    "author": "Thennicke",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "commons_page": "https://commons.wikimedia.org/wiki/File:CC_lightning,_Albury_NSW.JPG",
+    "what": "Cloud-to-cloud lightning over Albury, New South Wales, Australia, photographed on 9 September 2014."
+  },
+  {
+    "key": "snowflake",
+    "file": "snowflake.jpg",
+    "width": 1095,
+    "height": 1400,
+    "author": "Wilson Bentley",
+    "license": "Public domain",
+    "license_url": "",
+    "commons_page": "https://commons.wikimedia.org/wiki/File:SnowflakesWilsonBentley.jpg",
+    "what": "Snowflakes photographed by Wilson Bentley in Jericho, Vermont, in winter 1902 (Plate XIX of his Monthly Weather Review study)."
+  },
+  {
+    "key": "prang",
+    "file": "prang.jpg",
+    "width": 910,
+    "height": 1400,
+    "author": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Templo_Wat_Arun,_Bangkok,_Tailandia,_2013-08-22,_DD_28.jpg",
+    "what": "The central prang of Wat Arun, Bangkok, Thailand, seen through its gateway on 22 August 2013."
+  },
+  {
+    "key": "tree",
+    "file": "tree.jpg",
+    "width": 1089,
+    "height": 1400,
+    "author": "::::=UT=::::",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "commons_page": "https://commons.wikimedia.org/wiki/File:A_big_tree_(Albizia_saman)_@_Sukhothai_Historical_park_,_%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%88%E0%B8%B2%E0%B8%A1%E0%B8%88%E0%B8%B8%E0%B8%A3%E0%B8%B5_-_panoramio.jpg",
+    "what": "A big rain tree (Albizia saman, ต้นจามจุรี) beside a pond in Sukhothai Historical Park, Thailand, photographed on 3 March 2010."
+  }
+]

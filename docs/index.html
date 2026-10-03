@@ -1,0 +1,195 @@
+<!doctype html><html lang="en" translate="no" class="notranslate"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google" content="notranslate">
+<script>if(/[.]translate[.]goog$/.test(location.hostname))location.replace("https://"+location.hostname.slice(0,-15).replace(/--/g,"~").replace(/-/g,".").replace(/~/g,"-")+location.pathname+location.search.replace(/([?&])_x_tr_[^&]*/g,"$1").replace(/[?&]+$/,"").replace(/[?]&+/,"?")+location.hash)</script>
+<title>Play with Fractals · เล่นกับแฟร็กทัล</title>
+<meta name="description" content="Fractals to play with, drawn live: the Koch snowflake, the chaos game, a tree, Barnsley&#x27;s fern, the paper-folding dragon, the Mandelbrot and Julia sets, a coastline to measure and your own fractal with its dimension. In English and Thai.">
+<meta name="theme-color" content="#0b0a1c">
+<link rel="canonical" href="https://nanobotco.github.io/fractals/">
+<link rel="alternate" hreflang="en" href="https://nanobotco.github.io/fractals/"><link rel="alternate" hreflang="th" href="https://nanobotco.github.io/fractals/th/"><link rel="alternate" hreflang="x-default" href="https://nanobotco.github.io/fractals/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Play with Fractals · เล่นกับแฟร็กทัล">
+<meta property="og:title" content="Play with Fractals"><meta property="og:description" content="Fractals to play with, drawn live: the Koch snowflake, the chaos game, a tree, Barnsley&#x27;s fern, the paper-folding dragon, the Mandelbrot and Julia sets, a coastline to measure and your own fractal with its dimension. In English and Thai."><meta property="og:url" content="https://nanobotco.github.io/fractals/">
+<meta property="og:image" content="https://nanobotco.github.io/fractals/card.jpg"><meta property="og:image:secure_url" content="https://nanobotco.github.io/fractals/card.jpg"><meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Mandelbrot set in gold on night blue, with the title Play with Fractals">
+<meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="th_TH">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://nanobotco.github.io/fractals/card.jpg">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="alternate" type="text/plain" href="https://nanobotco.github.io/fractals/llms.txt" title="llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Noto+Sans+Thai:wght@400;600;700&family=Noto+Serif+Thai:wght@600;700&display=swap" rel="stylesheet">
+<script>if(/[?&]card/.test(location.search))document.documentElement.classList.add("card")</script>
+<style>:root{--night:#0b0a1c;--rock:#17153a;--ink:#f3eee2;--dim:#b9b3cf;--lamp:#ffc94d;--coral:#ff7a8a;--teal:#5fe0c8;--paper:#f7f2e8;--text:#1d1830;--mute:#645d78;--rule:#e3dccb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:17px/1.6 "Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+html[lang=th] body{font-size:18px;line-height:1.75}
+a{color:#7a3fd0}
+h1,h2,h3{font-family:Fraunces,"Noto Serif Thai",Georgia,serif;font-weight:700;line-height:1.15;margin:0 0 .4em}
+html[lang=th] h1,html[lang=th] h2,html[lang=th] h3{font-family:"Noto Serif Thai",Fraunces,serif;line-height:1.35}
+h2{font-size:clamp(28px,4.6vw,46px)}
+.in{max-width:1080px;margin:0 auto;padding:0 16px}
+.kick{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:0 0 .5em;font-weight:600}
+html[lang=th] .kick{text-transform:none;letter-spacing:0}
+.sec{padding:72px 0}
+.sec p{max-width:44em}
+.dark,.night,.rock{color:var(--ink)}
+.dark{background:var(--night)}
+.night{background:#05040f}
+.rock{background:var(--rock)}
+.dark a,.night a,.rock a{color:var(--lamp)}
+.dark .kick,.night .kick,.rock .kick{color:var(--dim)}
+canvas{display:block;width:100%;touch-action:pan-y}
+.cv{border-radius:14px;background:var(--night)}
+.cv.sq{aspect-ratio:1/1}
+.cv.tall{aspect-ratio:4/5}
+.cv.wide{aspect-ratio:16/9}
+.cv.big{aspect-ratio:16/10;max-height:78vh}
+.cv.ll{aspect-ratio:4/3}
+.cv.gen{aspect-ratio:2/1}
+.cv.mk{aspect-ratio:1/1}
+.cv.jw{aspect-ratio:1/1}
+@media (max-width:720px){.cv.wide,.cv.big{aspect-ratio:4/3}}
+.note{font-size:14px;color:var(--mute);margin-top:.6em}
+.dark .note,.night .note,.rock .note{color:var(--dim)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,10,28,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--ink);transition:transform .25s}
+header.top .in{display:flex;align-items:center;gap:14px;min-height:52px;max-width:1240px}
+.brand{display:flex;align-items:center;gap:8px;color:var(--ink);text-decoration:none;font-weight:700;white-space:nowrap}
+header.top nav{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;flex:1;font-size:15px}
+header.top nav::-webkit-scrollbar{display:none}
+header.top nav a{color:var(--dim);text-decoration:none;white-space:nowrap;padding:6px 0}
+header.top nav a:hover{color:var(--lamp)}
+.lang{white-space:nowrap;font-size:15px;color:var(--dim)}
+.lang a{color:var(--lamp)}
+body.nav-away header.top{transform:translateY(-100%)}
+@media (max-width:720px){.brand span{display:none}}
+.hero{position:relative;background:#05040f;color:var(--ink);overflow:hidden}
+.hero canvas{height:min(82vh,760px);min-height:480px}
+.hero-t{position:absolute;left:0;right:0;top:0;padding:30px 16px 0;max-width:1080px;margin:0 auto;pointer-events:none}
+.hero-t h1{font-size:clamp(42px,8vw,96px);margin:0;text-shadow:0 2px 22px rgba(0,0,0,.75)}
+.hero-t .kick{color:#ffe4a3;text-shadow:0 1px 8px #000}
+.hero-t .lede{font-size:clamp(17px,2.2vw,21px);max-width:28em;text-shadow:0 1px 10px #000;margin:.4em 0 0}
+.hero-t .go{pointer-events:auto;margin-top:18px}
+.hero-t .go a{text-decoration:none;display:inline-block}
+.pill{font:inherit;font-size:15px;border:1.5px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:6px 14px;cursor:pointer;min-height:36px;line-height:1.4}
+.pill.hot{background:var(--lamp);color:#1b1206;border-color:var(--lamp);font-weight:700}
+.pill[aria-pressed=true]{background:var(--ink);color:var(--night);border-color:var(--ink)}
+.sec:not(.dark):not(.night):not(.rock) .pill[aria-pressed=true]{background:var(--text);color:var(--paper);border-color:var(--text)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.seg .pill{font-size:14px;padding:5px 12px;min-height:34px}
+.two{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.ctl4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 22px;margin-top:10px}
+.ctl2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:4px 26px;align-items:end}
+.jgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:28px;margin-top:18px;align-items:start}
+.mgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;margin-top:18px;align-items:start}
+@media (max-width:860px){.jgrid,.mgrid{grid-template-columns:1fr}}
+.stage{position:relative}
+.stage .ov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#mandelcv{touch-action:none;cursor:grab}
+#pickcv{touch-action:none;cursor:crosshair}
+#gencv{touch-action:none;cursor:pointer}
+#chaoscv{cursor:crosshair}
+.zb{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:6px}
+.zb .pill{background:rgba(5,4,15,.7);color:var(--ink);font-size:20px;width:42px;height:42px;padding:0}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0}
+.readout div{background:rgba(255,255,255,.07);border-radius:10px;padding:10px 12px;min-width:0}
+.sec:not(.dark):not(.night):not(.rock) .readout div{background:#ebe3d2}
+.readout span{display:block;font-size:13px;color:var(--dim)}
+.sec:not(.dark):not(.night):not(.rock) .readout span{color:var(--mute)}
+.readout b{font-size:21px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+input[type=range]{width:100%;accent-color:var(--lamp);min-height:32px}
+.sec:not(.dark):not(.night):not(.rock) input[type=range]{accent-color:#7a3fd0}
+label.lab,p.lab{display:block;font-size:15px;margin:10px 0 0}
+label.lab b{font-variant-numeric:tabular-nums;color:var(--lamp)}
+.sec:not(.dark):not(.night):not(.rock) label.lab b{color:#7a3fd0}
+.creases{font-size:15px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.creases span{color:var(--mute)}
+.creases b{letter-spacing:.12em;font-weight:600}
+.ph{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:22px}
+.ph figure{margin:0}
+.ph img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:10px;display:block;background:#ddd}
+.ph figcaption{font-size:14px;color:var(--mute);margin-top:6px;line-height:1.5}
+.tl{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.tl li{display:grid;grid-template-columns:4.2em 1fr;gap:14px;align-items:baseline;border-top:1px solid rgba(255,255,255,.12);padding-top:10px}
+.tl b{font-family:Fraunces,Georgia,serif;font-size:24px;color:var(--lamp)}
+.glos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:20px}
+.glos div{background:#fffaf0;border:1px solid var(--rule);border-radius:12px;padding:12px 14px}
+.glos b{display:block;font-size:19px;font-family:Fraunces,"Noto Serif Thai",serif}
+.glos i{font-style:normal;color:var(--mute);font-size:14px}
+.glos p{margin:.3em 0 0;font-size:15px}
+.src{font-size:15px;padding-left:1.2em}
+.src li{margin:.3em 0}
+footer.bot{background:var(--night);color:var(--dim);padding:28px 0;font-size:14px}
+footer.bot a{color:var(--lamp)}
+.cardline{display:none;font-size:24px;color:#ffe4a3;margin-top:16px;text-shadow:0 1px 8px #000}
+.cardline span{font-size:19px;color:var(--lamp)}
+html.card header.top,html.card main>section:not(.hero),html.card footer,html.card .go,html.card .lede{display:none}
+html.card .hero canvas{height:100vh;min-height:0}
+html.card .hero-t{padding-top:52px;padding-left:60px;max-width:none}
+html.card .hero-t h1{font-size:104px}
+html.card .cardline{display:block}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head><body>
+<header class="top"><div class="in"><a class="brand" href="#top"><img src="icon.svg" width="28" height="28" alt=""><span>Play with Fractals</span></a>
+<nav aria-label="Sections"><a href="#koch">Snowflake</a><a href="#chaos">Chaos game</a><a href="#tree">Tree</a><a href="#fern">Fern</a><a href="#dragon">Dragon</a><a href="#mandel">Mandelbrot</a><a href="#julia">Julia</a><a href="#coast">Coast</a><a href="#make">Make</a><a href="#nature">Nature</a><a href="#history">History</a></nav>
+<span class="lang"><b>EN</b> | <a href="th/" hreflang="th">ไทย</a></span></div></header>
+<main><section id="top" class="hero"><canvas id="scene" role="img" aria-label="The Mandelbrot set, zooming slowly into Seahorse Valley"></canvas>
+<div class="hero-t"><p class="kick">Shapes built from smaller copies of themselves</p><h1>Play with Fractals</h1><p class="lede">Zoom, fold, grow and scatter. The drawings here grow live from a rule or two.</p>
+<p class="go"><a class="pill hot" href="#mandel">Take the wheel</a></p>
+<p class="cardline">เล่นกับแฟร็กทัล · Nine toys, in English and Thai<br><span>nanobotco.github.io/fractals</span></p></div></section>
+<section id="what" class="sec "><div class="in"><p class=kick>Fractals</p><h2>Broken, and the same all the way down</h2><p>A fractal is a shape that holds smaller copies of itself, with smaller copies inside those, as far down as you care to look. A fern frond is made of little fronds; a branch looks like a small tree; a stretch of coast looks like a whole coast.</p><p>Benoit Mandelbrot named them in 1975, from the Latin <i>fractus</i>, broken. Mathematicians had been drawing such shapes for a hundred years and calling them monsters, because they broke the old rules about length, area and dimension.</p><p>Most come from a short rule repeated many times. Each toy below shows its rule. Press the buttons and watch it run.</p></div></section>
+<section id="koch" class="sec dark"><div class="in"><p class=kick>Helge von Koch, 1904</p><h2>A snowflake with an endless edge</h2><div class="two"><div><canvas id="kochcv" class="cv sq" role="img" aria-label="A snowflake with an endless edge"></canvas></div>
+<div><p>Start with a triangle. Cut each side in three and raise a small triangle on the middle third. Do the same to the new sides, and again.</p><p>Each step turns one side into four, each a third as long, so the outline grows by 4/3. After ten steps it is 18 times as long; after a hundred, three trillion times. The area grows by less each step and settles at 8/5 of the first triangle: an outline with no end around a patch you could paint.</p><label class="lab" for="klevel">Level <b id="klevelv"></b></label><input id="klevel" type="range" min="0" max="7" step="1" value="3">
+<div class="btns"><button id="kzoom" class="pill" type="button" aria-pressed="false">Zoom forever</button></div>
+<div class="readout"><div><span>Sides</span><b id="ksides">–</b></div><div><span>Outline</span><b id="kout">–</b></div><div><span>Area</span><b id="karea">–</b></div></div><p class="note">Level 7 has 49,152 sides. Your screen runs out of pixels long before the rule runs out of steps. Zoom forever rides down one side: a third of a side looks like the whole side, so the picture loops.</p></div></div></div></section>
+<section id="chaos" class="sec "><div class="in"><p class=kick>A game of chance</p><h2>Roll dice, get a triangle</h2><div class="two"><div><canvas id="chaoscv" class="cv sq" role="img" aria-label="Roll dice, get a triangle"></canvas></div>
+<div><p>Put three corners on the page and a dot anywhere. Pick a corner at random, move the dot halfway to it, and mark where it lands. Repeat.</p><p>You might expect a smudge. Out comes Wacław Sierpiński's triangle of 1915: a triangle with its middle cut out, the middle cut out of the three left over, and so on down. Michael Barnsley called this the chaos game.</p><p>Change the corners and the jump. Fit picks the jump at which the copies just touch. Four corners and a halfway jump fill the square solid; forbid the same corner twice and a pattern comes back.</p><label class="lab" for="gn">Corners <b id="gnv"></b></label><input id="gn" type="range" min="3" max="8" step="1" value="3"><label class="lab" for="gr">Jump, share of the way <b id="grv"></b></label><input id="gr" type="range" min="0.3" max="0.9" step="0.001" value="0.5">
+<div class="seg" role="group"><button class="pill" type="button" data-rule="0" aria-pressed="true">Any corner</button><button class="pill" type="button" data-rule="1" aria-pressed="false">Not the same twice</button><button class="pill" type="button" data-rule="2" aria-pressed="false">Not the next one clockwise</button></div>
+<div class="btns"><button id="gfit" class="pill" type="button">Fit</button><button id="gstep" class="pill" type="button">One jump</button><button id="gclear" class="pill" type="button">Clear</button></div>
+<div class="readout"><div><span>Dots</span><b id="gdots">–</b></div></div><p class="note">Tap the picture to drop the dot somewhere new. One jump draws the move as a line.</p></div></div></div></section>
+<section id="tree" class="sec rock"><div class="in"><p class=kick>Branches</p><h2>A tree from one rule</h2><p>Draw a trunk. At its top draw two shorter branches, one turned left and one right. Treat each branch as a trunk and do it again.</p><p>Each level doubles the tips: ten levels make 1,024, thirteen make 8,192. If each branch is under half the length of its parent, the whole tree has a finite length however many levels you add. At half or more, the total grows without limit.</p>
+<canvas id="treecv" class="cv wide" role="img" aria-label="A tree from one rule"></canvas>
+<div class="ctl4"><div><label class="lab" for="tlev">Levels <b id="tlevv"></b></label><input id="tlev" type="range" min="1" max="13" step="1" value="10"></div><div><label class="lab" for="tang">Angle <b id="tangv"></b></label><input id="tang" type="range" min="0" max="120" step="1" value="28"></div><div><label class="lab" for="tshr">Shrink <b id="tshrv"></b></label><input id="tshr" type="range" min="0.3" max="0.85" step="0.01" value="0.72"></div><div><label class="lab" for="twind">Wind <b id="twindv"></b></label><input id="twind" type="range" min="0" max="1" step="0.01" value="0.35"></div></div>
+<div class="btns"><button id="tbloom" class="pill" type="button" aria-pressed="true">Blossom</button></div>
+<div class="readout"><div><span>Tips</span><b id="ttips">–</b></div><div><span>Total length</span><b id="tlen">–</b></div></div><p>Rivers, lungs, lightning and blood vessels branch in the same manner. Move across the tree to bend it.</p></div></section>
+<section id="fern" class="sec dark"><div class="in"><p class=kick>Four moves</p><h2>A fern from four moves</h2><div class="two"><div><canvas id="ferncv" class="cv tall" role="img" aria-label="A fern from four moves"></canvas></div>
+<div><p>Michael Barnsley's fern, from his 1988 book <i>Fractals Everywhere</i>, plays the chaos game with four moves in place of corners. Each move shrinks, turns and shifts the whole picture: one makes the stem, one the rest of the frond above the lowest pair of leaflets, one the left leaflet and one the right.</p><p>The big move comes up 85 times in a hundred, the stem once, each leaflet 7 times. Pick a move at random, apply it to the dot, mark it, repeat. Lean and Leaflets change the numbers inside the moves; Colour by move shows which move put down each dot.</p><label class="lab" for="flean">Lean <b id="fleanv"></b></label><input id="flean" type="range" min="-10" max="10" step="0.1" value="0"><label class="lab" for="fleaf">Leaflets <b id="fleafv"></b></label><input id="fleaf" type="range" min="0.4" max="1.5" step="0.01" value="1">
+<div class="btns"><button id="fcol" class="pill" type="button" aria-pressed="false">Colour by move</button><button id="fclear" class="pill" type="button">Clear</button></div>
+<div class="readout"><div><span>Dots</span><b id="fdots">–</b></div></div></div></div></div></section>
+<section id="dragon" class="sec "><div class="in"><p class=kick>Paper folding</p><h2>Fold a strip, get a dragon</h2><div class="two"><div><canvas id="dragoncv" class="cv sq" role="img" aria-label="Fold a strip, get a dragon"></canvas></div>
+<div><p>Fold a strip of paper in half, in half again the same way, and again. Open it so each crease makes a right angle. Ten folds give 1,024 pieces in the shape of a dragon.</p><p>NASA physicists John Heighway, Bruce Banks and William Harter found it; Martin Gardner wrote it up in <i>Scientific American</i> in 1967. The curve touches itself at corners but does not cross, and four dragons turned four ways fit together around a point with no overlap.</p><p>The creases read R R L R R L L R R R L L R L L …, the paper-folding sequence. The odd creases alternate R, L; the even ones repeat the whole sequence.</p><label class="lab" for="dfold">Folds <b id="dfoldv"></b></label><input id="dfold" type="range" min="1" max="15" step="1" value="10">
+<div class="btns"><button id="dunfold" class="pill hot" type="button">Unfold</button><button id="dfour" class="pill" type="button" aria-pressed="false">Four dragons</button></div>
+<div class="readout"><div><span>Pieces</span><b id="dpieces">–</b></div></div><p class="creases"><span>Creases</span> <b id="dcre"></b></p></div></div></div></section>
+<section id="mandel" class="sec night"><div class="in"><p class=kick>z → z² + c</p><h2>The Mandelbrot set</h2><p>Pick a point c on the picture; it stands for a number with two parts, a complex number. Start at zero, square it and add c. Square the answer and add c again. Repeat.</p><p>Some points fly off; some stay near home however long you go. The ones that stay make the dark shape. Colour shows how fast the rest leave. Move over the picture, or tap, to see a point's path.</p>
+<div class="stage"><canvas id="mandelcv" class="cv wide big" role="img" aria-label="The Mandelbrot set"></canvas><canvas id="mandelov" class="ov" aria-hidden="true"></canvas>
+<div class="zb"><button id="min" class="pill" type="button">+</button><button id="mout" class="pill" type="button">−</button></div></div>
+<p class="lab">Places</p><div class="seg" role="group"><button class="pill" type="button" data-place="0">Whole</button><button class="pill" type="button" data-place="1">Seahorse valley</button><button class="pill" type="button" data-place="2">Elephant valley</button><button class="pill" type="button" data-place="3">Double spiral</button><button class="pill" type="button" data-place="4">Baby set</button><button class="pill" type="button" data-place="5">Lightning</button></div>
+<div class="ctl2"><div><label class="lab" for="msteps">Steps <b id="mstepsv"></b></label><input id="msteps" type="range" min="50" max="2000" step="10" value="400"></div><div><p class="lab">Colours</p><div class="seg" role="group"><button class="pill" type="button" data-pal="gold" aria-pressed="true">Gold</button><button class="pill" type="button" data-pal="sea" aria-pressed="false">Sea</button><button class="pill" type="button" data-pal="fire" aria-pressed="false">Fire</button><button class="pill" type="button" data-pal="candy" aria-pressed="false">Candy</button></div></div></div>
+<div class="readout"><div><span>Zoom</span><b id="mzoom">–</b></div><div><span>Point</span><b id="mpt">–</b></div><div><span>Path</span><b id="mpath">–</b></div></div>
+<p>Drag to move, scroll or pinch to zoom, double-click to dive. Small copies of the whole set sit along the edge, joined by threads, with more along theirs. This toy stops near 200,000 times, where the computer's numbers run out of digits; the set goes on.</p><p class="note">Robert Brooks and Peter Matelski printed a rough picture of it in 1978; Mandelbrot's pictures at IBM from 1980 made it famous. Its area is about 1.5066. In 1998 Mitsuhiro Shishikura proved its edge has dimension 2, as crinkled as a curve in a plane can be.</p></div></section>
+<section id="julia" class="sec dark"><div class="in"><p class=kick>One c, one picture</p><h2>Julia sets</h2><p>Keep c fixed and start each point of the picture from where it sits instead of from zero. The points that stay make a Julia set, after Gaston Julia, who studied them in 1918 while Pierre Fatou did the same, with no computer to draw them.</p><p>Move over the small map to choose c. With c inside the Mandelbrot set, the Julia set comes in one piece; outside, it falls to dust. The wildest ones sit near the edge.</p>
+<div class="jgrid"><div><p class="lab">Map of c</p><div class="stage"><canvas id="pickcv" class="cv sq" role="img" aria-label="Map of c"></canvas><canvas id="pickov" class="ov" aria-hidden="true"></canvas></div>
+<div class="btns"><button id="jwalk" class="pill hot" type="button" aria-pressed="false">Walk the edge</button></div><div class="readout"><div><span>c</span><b id="jc">–</b></div><div><span></span><b id="jkind">–</b></div></div></div>
+<div><canvas id="juliacv" class="cv jw" role="img" aria-label="Julia sets"></canvas></div></div></div></section>
+<section id="coast" class="sec "><div class="in"><p class=kick>How long is a coast?</p><h2>Measure a coastline</h2><p>Lewis Fry Richardson measured coasts and borders with shorter and shorter rulers, and the totals kept growing. Spain and Portugal gave lengths for their shared border more than 200 km apart. His figures came out in 1961, after his death; Mandelbrot took them up in 1967 in “How long is the coast of Britain?”</p><p>Walk the made-up coast below with a pair of dividers. Halve the ruler and the coast comes out about a fifth longer. Plot length against ruler on log scales and the points fall along a line; one minus its slope is the dimension. A smooth curve scores 1, this coast about 1.26, the west coast of Britain about 1.25 by Richardson's figures.</p>
+<canvas id="coastcv" class="cv wide" role="img" aria-label="Measure a coastline"></canvas>
+<div class="two" style="margin-top:18px"><div><label class="lab" for="cruler">Ruler <b id="crulerv"></b></label><input id="cruler" type="range" min="0" max="1" step="0.001" value="0.209">
+<div class="btns"><button id="cnew" class="pill" type="button">New coast</button></div>
+<div class="readout"><div><span>Steps</span><b id="csteps">–</b></div><div><span>Length</span><b id="clen">–</b></div><div><span>Dimension</span><b id="cdim">–</b></div></div></div>
+<div><canvas id="loglog" class="cv ll" role="img" aria-label="Dimension"></canvas></div></div><p class="note">The coast is 1,000 km from end to end. Below about 2 km the made-up coast runs out of wiggles and stops growing; a coast outdoors carries on down to rocks and grains of sand.</p></div></section>
+<section id="make" class="sec rock"><div class="in"><p class=kick>Dimension</p><h2>Make your own</h2><p>Cut a line into 3 and you get 3 copies, each a third the size: 3 = 3¹. A square gives 9 = 3², a cube 27 = 3³. The power is the dimension. The Koch curve gives 4 copies at a third: 4 = 3<sup>D</sup>, so D = log 4 / log 3 ≈ 1.26, between a line and a plane.</p><p>Drag the dots of the bent line, tap the line to add a dot, double-tap a dot to remove it. Each straight piece is replaced by the whole bent line, level after level. With pieces of lengths r₁, r₂, …, the dimension D solves r₁<sup>D</sup> + r₂<sup>D</sup> + … = 1.</p>
+<div class="mgrid"><div><canvas id="gencv" class="cv gen" role="img" aria-label="drag the dots"></canvas>
+<p class="lab">Start from</p><div class="seg" role="group"><button class="pill" type="button" data-pre="0" aria-pressed="true">Koch</button><button class="pill" type="button" data-pre="1" aria-pressed="false">Square wave</button><button class="pill" type="button" data-pre="2" aria-pressed="false">Lévy C</button><button class="pill" type="button" data-pre="3" aria-pressed="false">Peano</button><button class="pill" type="button" data-pre="4" aria-pressed="false">Tall Koch</button></div><label class="lab" for="ylev">Levels <b id="ylevv"></b></label><input id="ylev" type="range" min="0" max="8" step="1" value="4">
+<div class="readout"><div><span>Pieces</span><b id="ypieces">–</b></div><div><span>Dimension</span><b id="ydim">–</b></div><div><span>Segments</span><b id="ysegs">–</b></div></div><div class="btns"><button id="ysave" class="pill" type="button">Save picture</button></div><p class="note">If pieces cross or overlap, the shape fills less than this number says.</p></div>
+<div><canvas id="makecv" class="cv mk" role="img" aria-label="Make your own"></canvas></div></div></div></section>
+<section id="nature" class="sec "><div class="in"><p class=kick>Out of doors</p><h2>Found in nature</h2><p>Nature's fractals run out after a few levels, at the size of a cell or a crystal of ice, but the pattern shows. In Thai the Romanesco is กะหล่ำดอกเจดีย์, the pagoda cauliflower.</p><p>Thai ornament grows flames on flames: see <a href="https://nanobotco.github.io/kranok/#nest">Kranok, Drawn</a>.</p><div class="ph"><figure><img loading="lazy" src="img/romanesco.jpg" width="1400" height="1120" alt="Romanesco: cones of cones, in spirals."><figcaption>Romanesco: cones of cones, in spirals. <a href="https://commons.wikimedia.org/wiki/File:Romanesco_broccoli_(Brassica_oleracea).jpg">Ivar Leidus</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></figcaption></figure><figure><img loading="lazy" src="img/fern.jpg" width="1400" height="1400" alt="Ostrich fern fiddleheads unrolling, curls within curls."><figcaption>Ostrich fern fiddleheads unrolling, curls within curls. <a href="https://commons.wikimedia.org/wiki/File:Matteuccia_struthiopteris_fiddleheads.jpg">The Cosmonaut</a> · <a href="https://creativecommons.org/licenses/by-sa/2.5/ca/deed.en">CC BY-SA 2.5 ca</a></figcaption></figure><figure><img loading="lazy" src="img/prang.jpg" width="910" height="1400" alt="The central prang of Wat Arun, Bangkok: smaller towers echo the tall one, tier on tier."><figcaption>The central prang of Wat Arun, Bangkok: smaller towers echo the tall one, tier on tier. <a href="https://commons.wikimedia.org/wiki/File:Templo_Wat_Arun,_Bangkok,_Tailandia,_2013-08-22,_DD_28.jpg">Diego Delso</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></figcaption></figure><figure><img loading="lazy" src="img/delta.jpg" width="1400" height="1400" alt="The Lena River Delta, Siberia, from Landsat 7, 2000."><figcaption>The Lena River Delta, Siberia, from Landsat 7, 2000. <a href="https://commons.wikimedia.org/wiki/File:Lena_River_Delta_-_Landsat_2000.jpg">NASA / USGS EROS Data Center (Landsat 7)</a> · Public domain</figcaption></figure><figure><img loading="lazy" src="img/lightning.jpg" width="1400" height="933" alt="Lightning over Albury, New South Wales, branching as it goes."><figcaption>Lightning over Albury, New South Wales, branching as it goes. <a href="https://commons.wikimedia.org/wiki/File:CC_lightning,_Albury_NSW.JPG">Thennicke</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></figcaption></figure><figure><img loading="lazy" src="img/snowflake.jpg" width="1095" height="1400" alt="Snowflakes photographed by Wilson Bentley, Vermont, 1902."><figcaption>Snowflakes photographed by Wilson Bentley, Vermont, 1902. <a href="https://commons.wikimedia.org/wiki/File:SnowflakesWilsonBentley.jpg">Wilson Bentley</a> · Public domain</figcaption></figure><figure><img loading="lazy" src="img/tree.jpg" width="1089" height="1400" alt="A rain tree (จามจุรี) in Sukhothai Historical Park."><figcaption>A rain tree (จามจุรี) in Sukhothai Historical Park. <a href="https://commons.wikimedia.org/wiki/File:A_big_tree_(Albizia_saman)_@_Sukhothai_Historical_park_,_%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%88%E0%B8%B2%E0%B8%A1%E0%B8%88%E0%B8%B8%E0%B8%A3%E0%B8%B5_-_panoramio.jpg">::::=UT=::::</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></figcaption></figure></div></div></section>
+<section id="history" class="sec dark"><div class="in"><p class=kick>History</p><h2>Monsters to pictures</h2><ol class="tl"><li><b>1883</b><span>Georg Cantor takes a line, removes its middle third, then the middle thirds of what is left, without end. Dust remains.</span></li><li><b>1904</b><span>Helge von Koch's snowflake curve: a curve with no tangent at any point.</span></li><li><b>1915</b><span>Wacław Sierpiński's triangle.</span></li><li><b>1918</b><span>Gaston Julia and Pierre Fatou work out Julia sets on paper.</span></li><li><b>1961</b><span>Lewis Fry Richardson's coast and border measurements are published.</span></li><li><b>1967</b><span>Mandelbrot asks how long the coast of Britain is. Martin Gardner's column carries the dragon curve.</span></li><li><b>1975</b><span>Mandelbrot coins the word fractal.</span></li><li><b>1978</b><span>Robert Brooks and Peter Matelski print the first picture of the Mandelbrot set.</span></li><li><b>1980</b><span>Mandelbrot's computer pictures at IBM.</span></li><li><b>1982</b><span><i>The Fractal Geometry of Nature</i>.</span></li><li><b>1988</b><span>Michael Barnsley's <i>Fractals Everywhere</i>: the fern and the chaos game.</span></li><li><b>1998</b><span>Mitsuhiro Shishikura: the edge of the Mandelbrot set has dimension 2.</span></li></ol></div></section>
+<section id="words" class="sec "><div class="in"><h2>Words</h2><div class="glos"><div><b>fractal</b><i>แฟร็กทัล</i><p>A shape with smaller copies of itself inside.</p></div><div><b>self-similar</b><i>คล้ายตัวเอง</i><p>A part looks like the whole.</p></div><div><b>iterate</b><i>ทำซ้ำ</i><p>Feed the answer back into the same rule.</p></div><div><b>dimension</b><i>มิติ</i><p>The power D in copies = scale<sup>D</sup>.</p></div><div><b>complex number</b><i>จำนวนเชิงซ้อน</i><p>A number with two parts, drawn as a point on a plane.</p></div><div><b>escape time</b><i>เวลาหนี</i><p>Steps before z leaves the circle of radius 2.</p></div><div><b>chaos game</b><i>เกมความอลวน</i><p>Random jumps that draw a fixed picture.</p></div><div><b>iterated function system</b><i>ระบบฟังก์ชันวนซ้ำ</i><p>A set of shrinking moves, as in the fern.</p></div><div><b>coastline paradox</b><i>ปฏิทรรศน์แนวชายฝั่ง</i><p>A coast's length depends on the ruler.</p></div><div><b>Koch snowflake</b><i>เกล็ดหิมะค็อค</i><p>Outline without end, area 8/5 of its triangle.</p></div><div><b>Sierpiński triangle</b><i>สามเหลี่ยมเซียร์ปินสกี</i><p>3 copies at half size; dimension 1.585.</p></div><div><b>dragon curve</b><i>เส้นโค้งมังกร</i><p>Paper folded in half again and again; edge dimension 1.524.</p></div><div><b>Mandelbrot set</b><i>เซตม็องแดลโบรต</i><p>Points c whose path from zero stays near home.</p></div><div><b>Julia set</b><i>เซตจูเลีย</i><p>For one c, the starting points that stay near home.</p></div><div><b>Romanesco</b><i>กะหล่ำดอกเจดีย์</i><p>A cauliflower of cones made of cones.</p></div></div></div></section>
+<section id="sources" class="sec "><div class="in"><h2>Sources</h2><p>Facts on this page come from these. Photographs come from Wikimedia Commons, each credited where it appears.</p><ul class="src"><li><a href="https://doi.org/10.1126/science.156.3775.636">Mandelbrot (1967), How Long Is the Coast of Britain? Science 156</a></li><li><a href="https://doi.org/10.2307/121009">Shishikura (1998), The Hausdorff dimension of the boundary of the Mandelbrot set and Julia sets, Annals of Mathematics 147</a></li><li><a href="https://en.wikipedia.org/wiki/Fractal">Wikipedia: Fractal</a></li><li><a href="https://en.wikipedia.org/wiki/The_Fractal_Geometry_of_Nature">Wikipedia: The Fractal Geometry of Nature</a></li><li><a href="https://en.wikipedia.org/wiki/Koch_snowflake">Wikipedia: Koch snowflake</a></li><li><a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Wikipedia: Sierpiński triangle</a></li><li><a href="https://en.wikipedia.org/wiki/Chaos_game">Wikipedia: Chaos game</a></li><li><a href="https://en.wikipedia.org/wiki/Barnsley_fern">Wikipedia: Barnsley fern</a></li><li><a href="https://en.wikipedia.org/wiki/Dragon_curve">Wikipedia: Dragon curve</a></li><li><a href="https://en.wikipedia.org/wiki/Regular_paperfolding_sequence">Wikipedia: Regular paperfolding sequence</a></li><li><a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Wikipedia: Mandelbrot set</a></li><li><a href="https://en.wikipedia.org/wiki/Julia_set">Wikipedia: Julia set</a></li><li><a href="https://en.wikipedia.org/wiki/Coastline_paradox">Wikipedia: Coastline paradox</a></li><li><a href="https://en.wikipedia.org/wiki/Lewis_Fry_Richardson">Wikipedia: Lewis Fry Richardson</a></li><li><a href="https://en.wikipedia.org/wiki/Cantor_set">Wikipedia: Cantor set</a></li><li><a href="https://en.wikipedia.org/wiki/List_of_fractals_by_Hausdorff_dimension">Wikipedia: List of fractals by Hausdorff dimension</a></li><li><a href="https://th.wikipedia.org/wiki/%E0%B9%81%E0%B8%9F%E0%B8%A3%E0%B9%87%E0%B8%81%E0%B8%97%E0%B8%B1%E0%B8%A5">วิกิพีเดีย: แฟร็กทัล</a></li><li><a href="https://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%B0%E0%B8%AB%E0%B8%A5%E0%B9%88%E0%B8%B3%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C">วิกิพีเดีย: กะหล่ำดอกเจดีย์</a></li><li><a href="https://commons.wikimedia.org/">Wikimedia Commons</a></li></ul></div></section>
+</main><footer class="bot"><div class="in">Text CC BY 4.0, NaNoBotCo. Code MIT. Photographs keep their own licences. · <a href="https://github.com/NaNoBotCo/fractals">GitHub</a> · <a href="https://motdang.net/">motdang.net</a> · <a href="https://hongdam.net/">hongdam.net</a></div></footer>
+<script>window.UI={"growing": "and growing", "inside": "inside", "outside": "outside", "m_stays": "stays near home", "m_leaves": "leaves at step {n}", "j_one": "one piece", "j_dust": "dust", "d_R": "R", "d_L": "L", "d_unfold": "Unfold", "km": "km", "c_axis_x": "ruler, km", "c_axis_y": "length, km", "y_hint": "drag the dots", "places": ["Whole", "Seahorse valley", "Elephant valley", "Double spiral", "Baby set", "Lightning"], "colours": ["Gold", "Sea", "Fire", "Candy"], "lang": "en"};</script>
+<script src="gl.js"></script><script src="app.js"></script><script src="top.js"></script>
+</body></html>

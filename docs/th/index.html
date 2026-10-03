@@ -1,0 +1,195 @@
+<!doctype html><html lang="th" translate="no" class="notranslate"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google" content="notranslate">
+<script>if(/[.]translate[.]goog$/.test(location.hostname))location.replace("https://"+location.hostname.slice(0,-15).replace(/--/g,"~").replace(/-/g,".").replace(/~/g,"-")+location.pathname+location.search.replace(/([?&])_x_tr_[^&]*/g,"$1").replace(/[?&]+$/,"").replace(/[?]&+/,"?")+location.hash)</script>
+<title>เล่นกับแฟร็กทัล · Play with Fractals</title>
+<meta name="description" content="แฟร็กทัลให้เล่น วาดสด ๆ ตรงหน้า: เกล็ดหิมะค็อค เกมความอลวน ต้นไม้ เฟิร์นของบาร์นสลีย์ มังกรพับกระดาษ เซตม็องแดลโบรตและเซตจูเลีย ชายฝั่งให้ลองวัด และแฟร็กทัลของคุณเองพร้อมมิติ ภาษาไทยและอังกฤษ">
+<meta name="theme-color" content="#0b0a1c">
+<link rel="canonical" href="https://nanobotco.github.io/fractals/th/">
+<link rel="alternate" hreflang="en" href="https://nanobotco.github.io/fractals/"><link rel="alternate" hreflang="th" href="https://nanobotco.github.io/fractals/th/"><link rel="alternate" hreflang="x-default" href="https://nanobotco.github.io/fractals/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Play with Fractals · เล่นกับแฟร็กทัล">
+<meta property="og:title" content="เล่นกับแฟร็กทัล"><meta property="og:description" content="แฟร็กทัลให้เล่น วาดสด ๆ ตรงหน้า: เกล็ดหิมะค็อค เกมความอลวน ต้นไม้ เฟิร์นของบาร์นสลีย์ มังกรพับกระดาษ เซตม็องแดลโบรตและเซตจูเลีย ชายฝั่งให้ลองวัด และแฟร็กทัลของคุณเองพร้อมมิติ ภาษาไทยและอังกฤษ"><meta property="og:url" content="https://nanobotco.github.io/fractals/th/">
+<meta property="og:image" content="https://nanobotco.github.io/fractals/card.jpg"><meta property="og:image:secure_url" content="https://nanobotco.github.io/fractals/card.jpg"><meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="เซตม็องแดลโบรตสีทองบนพื้นน้ำเงินกลางคืน พร้อมชื่อ เล่นกับแฟร็กทัล">
+<meta property="og:locale" content="th_TH"><meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://nanobotco.github.io/fractals/card.jpg">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="alternate" type="text/plain" href="https://nanobotco.github.io/fractals/llms.txt" title="llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Noto+Sans+Thai:wght@400;600;700&family=Noto+Serif+Thai:wght@600;700&display=swap" rel="stylesheet">
+<script>if(/[?&]card/.test(location.search))document.documentElement.classList.add("card")</script>
+<style>:root{--night:#0b0a1c;--rock:#17153a;--ink:#f3eee2;--dim:#b9b3cf;--lamp:#ffc94d;--coral:#ff7a8a;--teal:#5fe0c8;--paper:#f7f2e8;--text:#1d1830;--mute:#645d78;--rule:#e3dccb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:17px/1.6 "Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+html[lang=th] body{font-size:18px;line-height:1.75}
+a{color:#7a3fd0}
+h1,h2,h3{font-family:Fraunces,"Noto Serif Thai",Georgia,serif;font-weight:700;line-height:1.15;margin:0 0 .4em}
+html[lang=th] h1,html[lang=th] h2,html[lang=th] h3{font-family:"Noto Serif Thai",Fraunces,serif;line-height:1.35}
+h2{font-size:clamp(28px,4.6vw,46px)}
+.in{max-width:1080px;margin:0 auto;padding:0 16px}
+.kick{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:0 0 .5em;font-weight:600}
+html[lang=th] .kick{text-transform:none;letter-spacing:0}
+.sec{padding:72px 0}
+.sec p{max-width:44em}
+.dark,.night,.rock{color:var(--ink)}
+.dark{background:var(--night)}
+.night{background:#05040f}
+.rock{background:var(--rock)}
+.dark a,.night a,.rock a{color:var(--lamp)}
+.dark .kick,.night .kick,.rock .kick{color:var(--dim)}
+canvas{display:block;width:100%;touch-action:pan-y}
+.cv{border-radius:14px;background:var(--night)}
+.cv.sq{aspect-ratio:1/1}
+.cv.tall{aspect-ratio:4/5}
+.cv.wide{aspect-ratio:16/9}
+.cv.big{aspect-ratio:16/10;max-height:78vh}
+.cv.ll{aspect-ratio:4/3}
+.cv.gen{aspect-ratio:2/1}
+.cv.mk{aspect-ratio:1/1}
+.cv.jw{aspect-ratio:1/1}
+@media (max-width:720px){.cv.wide,.cv.big{aspect-ratio:4/3}}
+.note{font-size:14px;color:var(--mute);margin-top:.6em}
+.dark .note,.night .note,.rock .note{color:var(--dim)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,10,28,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--ink);transition:transform .25s}
+header.top .in{display:flex;align-items:center;gap:14px;min-height:52px;max-width:1240px}
+.brand{display:flex;align-items:center;gap:8px;color:var(--ink);text-decoration:none;font-weight:700;white-space:nowrap}
+header.top nav{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;flex:1;font-size:15px}
+header.top nav::-webkit-scrollbar{display:none}
+header.top nav a{color:var(--dim);text-decoration:none;white-space:nowrap;padding:6px 0}
+header.top nav a:hover{color:var(--lamp)}
+.lang{white-space:nowrap;font-size:15px;color:var(--dim)}
+.lang a{color:var(--lamp)}
+body.nav-away header.top{transform:translateY(-100%)}
+@media (max-width:720px){.brand span{display:none}}
+.hero{position:relative;background:#05040f;color:var(--ink);overflow:hidden}
+.hero canvas{height:min(82vh,760px);min-height:480px}
+.hero-t{position:absolute;left:0;right:0;top:0;padding:30px 16px 0;max-width:1080px;margin:0 auto;pointer-events:none}
+.hero-t h1{font-size:clamp(42px,8vw,96px);margin:0;text-shadow:0 2px 22px rgba(0,0,0,.75)}
+.hero-t .kick{color:#ffe4a3;text-shadow:0 1px 8px #000}
+.hero-t .lede{font-size:clamp(17px,2.2vw,21px);max-width:28em;text-shadow:0 1px 10px #000;margin:.4em 0 0}
+.hero-t .go{pointer-events:auto;margin-top:18px}
+.hero-t .go a{text-decoration:none;display:inline-block}
+.pill{font:inherit;font-size:15px;border:1.5px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:6px 14px;cursor:pointer;min-height:36px;line-height:1.4}
+.pill.hot{background:var(--lamp);color:#1b1206;border-color:var(--lamp);font-weight:700}
+.pill[aria-pressed=true]{background:var(--ink);color:var(--night);border-color:var(--ink)}
+.sec:not(.dark):not(.night):not(.rock) .pill[aria-pressed=true]{background:var(--text);color:var(--paper);border-color:var(--text)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.seg .pill{font-size:14px;padding:5px 12px;min-height:34px}
+.two{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.ctl4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 22px;margin-top:10px}
+.ctl2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:4px 26px;align-items:end}
+.jgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:28px;margin-top:18px;align-items:start}
+.mgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;margin-top:18px;align-items:start}
+@media (max-width:860px){.jgrid,.mgrid{grid-template-columns:1fr}}
+.stage{position:relative}
+.stage .ov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#mandelcv{touch-action:none;cursor:grab}
+#pickcv{touch-action:none;cursor:crosshair}
+#gencv{touch-action:none;cursor:pointer}
+#chaoscv{cursor:crosshair}
+.zb{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:6px}
+.zb .pill{background:rgba(5,4,15,.7);color:var(--ink);font-size:20px;width:42px;height:42px;padding:0}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0}
+.readout div{background:rgba(255,255,255,.07);border-radius:10px;padding:10px 12px;min-width:0}
+.sec:not(.dark):not(.night):not(.rock) .readout div{background:#ebe3d2}
+.readout span{display:block;font-size:13px;color:var(--dim)}
+.sec:not(.dark):not(.night):not(.rock) .readout span{color:var(--mute)}
+.readout b{font-size:21px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+input[type=range]{width:100%;accent-color:var(--lamp);min-height:32px}
+.sec:not(.dark):not(.night):not(.rock) input[type=range]{accent-color:#7a3fd0}
+label.lab,p.lab{display:block;font-size:15px;margin:10px 0 0}
+label.lab b{font-variant-numeric:tabular-nums;color:var(--lamp)}
+.sec:not(.dark):not(.night):not(.rock) label.lab b{color:#7a3fd0}
+.creases{font-size:15px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.creases span{color:var(--mute)}
+.creases b{letter-spacing:.12em;font-weight:600}
+.ph{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:22px}
+.ph figure{margin:0}
+.ph img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:10px;display:block;background:#ddd}
+.ph figcaption{font-size:14px;color:var(--mute);margin-top:6px;line-height:1.5}
+.tl{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.tl li{display:grid;grid-template-columns:4.2em 1fr;gap:14px;align-items:baseline;border-top:1px solid rgba(255,255,255,.12);padding-top:10px}
+.tl b{font-family:Fraunces,Georgia,serif;font-size:24px;color:var(--lamp)}
+.glos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:20px}
+.glos div{background:#fffaf0;border:1px solid var(--rule);border-radius:12px;padding:12px 14px}
+.glos b{display:block;font-size:19px;font-family:Fraunces,"Noto Serif Thai",serif}
+.glos i{font-style:normal;color:var(--mute);font-size:14px}
+.glos p{margin:.3em 0 0;font-size:15px}
+.src{font-size:15px;padding-left:1.2em}
+.src li{margin:.3em 0}
+footer.bot{background:var(--night);color:var(--dim);padding:28px 0;font-size:14px}
+footer.bot a{color:var(--lamp)}
+.cardline{display:none;font-size:24px;color:#ffe4a3;margin-top:16px;text-shadow:0 1px 8px #000}
+.cardline span{font-size:19px;color:var(--lamp)}
+html.card header.top,html.card main>section:not(.hero),html.card footer,html.card .go,html.card .lede{display:none}
+html.card .hero canvas{height:100vh;min-height:0}
+html.card .hero-t{padding-top:52px;padding-left:60px;max-width:none}
+html.card .hero-t h1{font-size:104px}
+html.card .cardline{display:block}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head><body>
+<header class="top"><div class="in"><a class="brand" href="#top"><img src="../icon.svg" width="28" height="28" alt=""><span>เล่นกับแฟร็กทัล</span></a>
+<nav aria-label="หัวข้อ"><a href="#koch">เกล็ดหิมะ</a><a href="#chaos">เกมสุ่ม</a><a href="#tree">ต้นไม้</a><a href="#fern">เฟิร์น</a><a href="#dragon">มังกร</a><a href="#mandel">ม็องแดลโบรต</a><a href="#julia">จูเลีย</a><a href="#coast">ชายฝั่ง</a><a href="#make">สร้างเอง</a><a href="#nature">ธรรมชาติ</a><a href="#history">ประวัติ</a></nav>
+<span class="lang"><b>ไทย</b> | <a href="../" hreflang="en">EN</a></span></div></header>
+<main><section id="top" class="hero"><canvas id="scene" role="img" aria-label="เซตม็องแดลโบรต ค่อย ๆ ซูมเข้าไปในหุบม้าน้ำ"></canvas>
+<div class="hero-t"><p class="kick">รูปร่างที่ประกอบขึ้นจากสำเนาเล็ก ๆ ของตัวมันเอง</p><h1>เล่นกับแฟร็กทัล</h1><p class="lede">ซูม พับ ปลูก และโปรย ภาพในหน้านี้งอกขึ้นสด ๆ จากกฎเพียงหนึ่งหรือสองข้อ</p>
+<p class="go"><a class="pill hot" href="#mandel">ลองขับเอง</a></p>
+<p class="cardline">Play with Fractals · ของเล่นเก้าชิ้น ภาษาไทยและอังกฤษ<br><span>nanobotco.github.io/fractals</span></p></div></section>
+<section id="what" class="sec "><div class="in"><p class=kick>แฟร็กทัล</p><h2>แตกเป็นชิ้น และเหมือนเดิมไปจนสุดทาง</h2><p>แฟร็กทัลคือรูปร่างที่มีสำเนาขนาดเล็กของตัวเองอยู่ข้างใน และในสำเนานั้นก็มีสำเนาที่เล็กลงไปอีก ลึกลงไปเท่าที่อยากดู ใบเฟิร์นหนึ่งใบประกอบด้วยใบเฟิร์นเล็ก ๆ กิ่งไม้หนึ่งกิ่งดูเหมือนต้นไม้ต้นเล็ก ชายฝั่งช่วงสั้น ๆ ดูเหมือนชายฝั่งทั้งเส้น</p><p>เบอนัว ม็องแดลโบรต ตั้งชื่อนี้ในปี 1975 จากคำละติน <i>fractus</i> ที่แปลว่าแตกหัก ก่อนหน้านั้นนักคณิตศาสตร์วาดรูปแบบนี้มาร้อยปีแล้ว และเรียกมันว่าสัตว์ประหลาด เพราะมันฝ่ากฎเดิมเรื่องความยาว พื้นที่ และมิติ</p><p>แฟร็กทัลส่วนใหญ่เกิดจากกฎสั้น ๆ ที่ทำซ้ำหลายครั้ง ของเล่นแต่ละชิ้นข้างล่างบอกกฎของมันไว้ กดปุ่มแล้วดูมันทำงาน</p></div></section>
+<section id="koch" class="sec dark"><div class="in"><p class=kick>เฮลเกอ ฟอน ค็อค ปี 1904</p><h2>เกล็ดหิมะที่ขอบยาวไม่รู้จบ</h2><div class="two"><div><canvas id="kochcv" class="cv sq" role="img" aria-label="เกล็ดหิมะที่ขอบยาวไม่รู้จบ"></canvas></div>
+<div><p>เริ่มจากสามเหลี่ยมหนึ่งรูป แบ่งแต่ละด้านเป็นสามส่วน แล้วตั้งสามเหลี่ยมเล็ก ๆ ขึ้นบนส่วนกลาง ทำแบบเดียวกันกับด้านใหม่ แล้วทำอีก</p><p>แต่ละขั้นเปลี่ยนด้านหนึ่งด้านเป็นสี่ด้าน ยาวด้านละหนึ่งในสาม เส้นรอบรูปจึงยาวขึ้น 4/3 เท่า สิบขั้นยาวขึ้น 18 เท่า ร้อยขั้นยาวขึ้นสามล้านล้านเท่า ส่วนพื้นที่โตขึ้นน้อยลงทุกขั้น และไปหยุดที่ 8/5 ของสามเหลี่ยมแรก เป็นเส้นรอบรูปที่ยาวไม่สิ้นสุด ล้อมพื้นที่ที่ทาสีได้หมด</p><label class="lab" for="klevel">ขั้น <b id="klevelv"></b></label><input id="klevel" type="range" min="0" max="7" step="1" value="3">
+<div class="btns"><button id="kzoom" class="pill" type="button" aria-pressed="false">ซูมไม่รู้จบ</button></div>
+<div class="readout"><div><span>จำนวนด้าน</span><b id="ksides">–</b></div><div><span>เส้นรอบรูป</span><b id="kout">–</b></div><div><span>พื้นที่</span><b id="karea">–</b></div></div><p class="note">ขั้นที่ 7 มี 49,152 ด้าน พิกเซลบนจอหมดก่อนกฎจะหมดขั้นเสียอีก ปุ่ม ซูมไม่รู้จบ พาไล่ลงไปตามด้านหนึ่ง หนึ่งในสามของด้านหน้าตาเหมือนทั้งด้าน ภาพจึงวนซ้ำได้</p></div></div></div></section>
+<section id="chaos" class="sec "><div class="in"><p class=kick>เกมเสี่ยงทาย</p><h2>ทอยลูกเต๋า ได้สามเหลี่ยม</h2><div class="two"><div><canvas id="chaoscv" class="cv sq" role="img" aria-label="ทอยลูกเต๋า ได้สามเหลี่ยม"></canvas></div>
+<div><p>วางมุมสามมุมบนหน้ากระดาษ แล้ววางจุดไว้ตรงไหนก็ได้ สุ่มเลือกมุมหนึ่ง เลื่อนจุดไปครึ่งทางสู่มุมนั้น แล้วทำเครื่องหมายตรงที่จุดตก ทำซ้ำ</p><p>หลายคนคิดว่าจะได้รอยเปื้อนมั่ว ๆ แต่ที่ออกมาคือสามเหลี่ยมของวาตสวัฟ เซียร์ปินสกี จากปี 1915 สามเหลี่ยมที่เจาะตรงกลางออก แล้วเจาะกลางของสามรูปที่เหลือ ไล่ลงไปเรื่อย ๆ ไมเคิล บาร์นสลีย์ เรียกวิธีนี้ว่าเกมความอลวน</p><p>ลองเปลี่ยนจำนวนมุมและระยะกระโดด ปุ่ม พอดี เลือกระยะที่ทำให้สำเนาแตะกันพอดี สี่มุมกับกระโดดครึ่งทางจะถมสี่เหลี่ยมจนเต็ม แต่ถ้าห้ามเลือกมุมเดิมซ้ำ ลวดลายจะกลับมา</p><label class="lab" for="gn">มุม <b id="gnv"></b></label><input id="gn" type="range" min="3" max="8" step="1" value="3"><label class="lab" for="gr">ระยะกระโดด (สัดส่วนของทาง) <b id="grv"></b></label><input id="gr" type="range" min="0.3" max="0.9" step="0.001" value="0.5">
+<div class="seg" role="group"><button class="pill" type="button" data-rule="0" aria-pressed="true">มุมไหนก็ได้</button><button class="pill" type="button" data-rule="1" aria-pressed="false">ห้ามมุมเดิมซ้ำ</button><button class="pill" type="button" data-rule="2" aria-pressed="false">ห้ามมุมถัดไปตามเข็มนาฬิกา</button></div>
+<div class="btns"><button id="gfit" class="pill" type="button">พอดี</button><button id="gstep" class="pill" type="button">กระโดดทีละครั้ง</button><button id="gclear" class="pill" type="button">ล้าง</button></div>
+<div class="readout"><div><span>จุด</span><b id="gdots">–</b></div></div><p class="note">แตะภาพเพื่อวางจุดใหม่ ปุ่ม กระโดดทีละครั้ง วาดการเคลื่อนเป็นเส้นให้ดู</p></div></div></div></section>
+<section id="tree" class="sec rock"><div class="in"><p class=kick>กิ่งก้าน</p><h2>ต้นไม้จากกฎข้อเดียว</h2><p>วาดลำต้น ที่ปลายลำต้นวาดกิ่งที่สั้นกว่าสองกิ่ง เอียงซ้ายหนึ่ง ขวาหนึ่ง แล้วถือว่าแต่ละกิ่งเป็นลำต้นใหม่ ทำซ้ำ</p><p>ทุกชั้นปลายกิ่งเพิ่มเป็นสองเท่า สิบชั้นได้ 1,024 ปลาย สิบสามชั้นได้ 8,192 ถ้ากิ่งแต่ละกิ่งยาวไม่ถึงครึ่งของกิ่งแม่ ความยาวรวมของทั้งต้นจะมีขอบเขต ต่อให้เพิ่มชั้นไปเท่าไรก็ตาม ถ้ายาวครึ่งหนึ่งหรือมากกว่า ความยาวรวมจะโตไม่มีที่สิ้นสุด</p>
+<canvas id="treecv" class="cv wide" role="img" aria-label="ต้นไม้จากกฎข้อเดียว"></canvas>
+<div class="ctl4"><div><label class="lab" for="tlev">ชั้น <b id="tlevv"></b></label><input id="tlev" type="range" min="1" max="13" step="1" value="10"></div><div><label class="lab" for="tang">มุม <b id="tangv"></b></label><input id="tang" type="range" min="0" max="120" step="1" value="28"></div><div><label class="lab" for="tshr">ย่อ <b id="tshrv"></b></label><input id="tshr" type="range" min="0.3" max="0.85" step="0.01" value="0.72"></div><div><label class="lab" for="twind">ลม <b id="twindv"></b></label><input id="twind" type="range" min="0" max="1" step="0.01" value="0.35"></div></div>
+<div class="btns"><button id="tbloom" class="pill" type="button" aria-pressed="true">ออกดอก</button></div>
+<div class="readout"><div><span>ปลายกิ่ง</span><b id="ttips">–</b></div><div><span>ความยาวรวม</span><b id="tlen">–</b></div></div><p>แม่น้ำ ปอด ฟ้าผ่า และเส้นเลือด แตกกิ่งแบบเดียวกัน ลากผ่านต้นไม้เพื่อให้มันเอน</p></div></section>
+<section id="fern" class="sec dark"><div class="in"><p class=kick>สี่ท่า</p><h2>เฟิร์นจากสี่ท่า</h2><div class="two"><div><canvas id="ferncv" class="cv tall" role="img" aria-label="เฟิร์นจากสี่ท่า"></canvas></div>
+<div><p>เฟิร์นของไมเคิล บาร์นสลีย์ จากหนังสือ <i>Fractals Everywhere</i> ปี 1988 คือเกมความอลวนที่ใช้สี่ท่าแทนมุม แต่ละท่าย่อ หมุน และเลื่อนทั้งภาพ ท่าหนึ่งสร้างก้าน ท่าหนึ่งสร้างส่วนที่เหลือของใบเหนือใบย่อยคู่ล่างสุด ท่าหนึ่งสร้างใบย่อยซ้าย อีกท่าสร้างใบย่อยขวา</p><p>ท่าใหญ่ถูกสุ่มได้ 85 ครั้งในร้อย ก้าน 1 ครั้ง ใบย่อยข้างละ 7 ครั้ง สุ่มท่า ใช้กับจุด ทำเครื่องหมาย ทำซ้ำ ตัวเลื่อน เอน และ ใบย่อย เปลี่ยนตัวเลขในท่า ปุ่ม แยกสีตามท่า บอกว่าจุดแต่ละจุดมาจากท่าไหน</p><label class="lab" for="flean">เอน <b id="fleanv"></b></label><input id="flean" type="range" min="-10" max="10" step="0.1" value="0"><label class="lab" for="fleaf">ใบย่อย <b id="fleafv"></b></label><input id="fleaf" type="range" min="0.4" max="1.5" step="0.01" value="1">
+<div class="btns"><button id="fcol" class="pill" type="button" aria-pressed="false">แยกสีตามท่า</button><button id="fclear" class="pill" type="button">ล้าง</button></div>
+<div class="readout"><div><span>จุด</span><b id="fdots">–</b></div></div></div></div></div></section>
+<section id="dragon" class="sec "><div class="in"><p class=kick>พับกระดาษ</p><h2>พับแถบกระดาษ ได้มังกร</h2><div class="two"><div><canvas id="dragoncv" class="cv sq" role="img" aria-label="พับแถบกระดาษ ได้มังกร"></canvas></div>
+<div><p>พับแถบกระดาษครึ่งหนึ่ง พับครึ่งอีกครั้งไปทางเดิม แล้วพับอีก คลี่ออกให้รอยพับแต่ละรอยเป็นมุมฉาก พับสิบครั้งได้ 1,024 ท่อน เป็นรูปมังกร</p><p>นักฟิสิกส์ของนาซา จอห์น ไฮเวย์ บรูซ แบงส์ และวิลเลียม ฮาร์เตอร์ เป็นผู้พบ มาร์ติน การ์ดเนอร์ นำไปเขียนในนิตยสาร <i>Scientific American</i> ปี 1967 เส้นนี้แตะตัวเองที่มุมแต่ไม่ตัดกัน และมังกรสี่ตัวที่หันไปสี่ทิศต่อกันรอบจุดเดียวได้โดยไม่ซ้อนทับ</p><p>รอยพับอ่านได้ว่า ข ข ซ ข ข ซ ซ ข ข ข ซ ซ ข ซ ซ … (ข = ขวา ซ = ซ้าย) เรียกว่าลำดับการพับกระดาษ รอยพับลำดับคี่สลับ ข ซ ส่วนลำดับคู่ซ้ำทั้งลำดับเดิม</p><label class="lab" for="dfold">พับ <b id="dfoldv"></b></label><input id="dfold" type="range" min="1" max="15" step="1" value="10">
+<div class="btns"><button id="dunfold" class="pill hot" type="button">คลี่</button><button id="dfour" class="pill" type="button" aria-pressed="false">มังกรสี่ตัว</button></div>
+<div class="readout"><div><span>ท่อน</span><b id="dpieces">–</b></div></div><p class="creases"><span>รอยพับ</span> <b id="dcre"></b></p></div></div></div></section>
+<section id="mandel" class="sec night"><div class="in"><p class=kick>z → z² + c</p><h2>เซตม็องแดลโบรต</h2><p>เลือกจุด c บนภาพ จุดนั้นแทนจำนวนที่มีสองส่วน เรียกว่าจำนวนเชิงซ้อน เริ่มจากศูนย์ ยกกำลังสองแล้วบวก c เอาคำตอบมายกกำลังสองแล้วบวก c อีก ทำซ้ำ</p><p>บางจุดพุ่งหนีออกไป บางจุดวนอยู่ใกล้บ้านไม่ว่าจะทำไปนานแค่ไหน จุดที่อยู่รวมกันเป็นรูปสีเข้ม สีของที่เหลือบอกว่ามันหนีเร็วแค่ไหน เลื่อนเมาส์บนภาพ หรือแตะ เพื่อดูเส้นทางของจุดนั้น</p>
+<div class="stage"><canvas id="mandelcv" class="cv wide big" role="img" aria-label="เซตม็องแดลโบรต"></canvas><canvas id="mandelov" class="ov" aria-hidden="true"></canvas>
+<div class="zb"><button id="min" class="pill" type="button">+</button><button id="mout" class="pill" type="button">−</button></div></div>
+<p class="lab">จุดแวะ</p><div class="seg" role="group"><button class="pill" type="button" data-place="0">ทั้งตัว</button><button class="pill" type="button" data-place="1">หุบม้าน้ำ</button><button class="pill" type="button" data-place="2">หุบช้าง</button><button class="pill" type="button" data-place="3">เกลียวคู่</button><button class="pill" type="button" data-place="4">ม็องแดลโบรตจิ๋ว</button><button class="pill" type="button" data-place="5">สายฟ้า</button></div>
+<div class="ctl2"><div><label class="lab" for="msteps">จำนวนรอบ <b id="mstepsv"></b></label><input id="msteps" type="range" min="50" max="2000" step="10" value="400"></div><div><p class="lab">สี</p><div class="seg" role="group"><button class="pill" type="button" data-pal="gold" aria-pressed="true">ทอง</button><button class="pill" type="button" data-pal="sea" aria-pressed="false">ทะเล</button><button class="pill" type="button" data-pal="fire" aria-pressed="false">ไฟ</button><button class="pill" type="button" data-pal="candy" aria-pressed="false">ลูกกวาด</button></div></div></div>
+<div class="readout"><div><span>ซูม</span><b id="mzoom">–</b></div><div><span>จุด</span><b id="mpt">–</b></div><div><span>เส้นทาง</span><b id="mpath">–</b></div></div>
+<p>ลากเพื่อเลื่อน หมุนล้อหรือถ่างนิ้วเพื่อซูม ดับเบิลคลิกเพื่อดำดิ่ง ตามขอบมีสำเนาเล็ก ๆ ของทั้งเซตเรียงอยู่ เชื่อมกันด้วยเส้นใย และตามขอบของสำเนาก็มีอีก ของเล่นนี้หยุดที่ราว 200,000 เท่า ตรงที่ตัวเลขในคอมพิวเตอร์หมดหลัก แต่เซตยังไปต่อ</p><p class="note">โรเบิร์ต บรูกส์ และปีเตอร์ มาเทลสกี พิมพ์ภาพหยาบ ๆ ของมันในปี 1978 ภาพของม็องแดลโบรตที่ IBM ตั้งแต่ปี 1980 ทำให้มันโด่งดัง พื้นที่ของมันประมาณ 1.5066 ปี 1998 มิตสึฮิโระ ชิชิกุระ พิสูจน์ว่าขอบของมันมีมิติเท่ากับ 2 หยักมากที่สุดเท่าที่เส้นบนระนาบจะหยักได้</p></div></section>
+<section id="julia" class="sec dark"><div class="in"><p class=kick>c หนึ่งค่า ภาพหนึ่งภาพ</p><h2>เซตจูเลีย</h2><p>ตรึง c ไว้ แล้วให้แต่ละจุดบนภาพเริ่มจากตำแหน่งของตัวเองแทนที่จะเริ่มจากศูนย์ จุดที่วนอยู่ใกล้บ้านรวมกันเป็นเซตจูเลีย ตั้งชื่อตามกัสตอง จูเลีย ผู้ศึกษามันในปี 1918 ขณะที่ปีแยร์ ฟาตู ก็ศึกษาเรื่องเดียวกัน โดยไม่มีคอมพิวเตอร์ช่วยวาด</p><p>เลื่อนบนแผนที่เล็กเพื่อเลือก c ถ้า c อยู่ในเซตม็องแดลโบรต เซตจูเลียจะเป็นชิ้นเดียว ถ้าอยู่นอก มันจะแตกเป็นผงฝุ่น ภาพที่พิสดารที่สุดอยู่ใกล้ขอบ</p>
+<div class="jgrid"><div><p class="lab">แผนที่ของ c</p><div class="stage"><canvas id="pickcv" class="cv sq" role="img" aria-label="แผนที่ของ c"></canvas><canvas id="pickov" class="ov" aria-hidden="true"></canvas></div>
+<div class="btns"><button id="jwalk" class="pill hot" type="button" aria-pressed="false">เดินตามขอบ</button></div><div class="readout"><div><span>c</span><b id="jc">–</b></div><div><span></span><b id="jkind">–</b></div></div></div>
+<div><canvas id="juliacv" class="cv jw" role="img" aria-label="เซตจูเลีย"></canvas></div></div></div></section>
+<section id="coast" class="sec "><div class="in"><p class=kick>ชายฝั่งยาวเท่าไร</p><h2>วัดความยาวชายฝั่ง</h2><p>ลูอิส ฟราย ริชาร์ดสัน วัดชายฝั่งและเส้นพรมแดนด้วยไม้บรรทัดที่สั้นลงเรื่อย ๆ และผลรวมก็ยาวขึ้นเรื่อย ๆ สเปนกับโปรตุเกสให้ความยาวพรมแดนร่วมกันต่างกันกว่า 200 กิโลเมตร ตัวเลขของเขาตีพิมพ์ในปี 1961 หลังเขาเสียชีวิต ม็องแดลโบรตนำไปต่อยอดในปี 1967 ในบทความ “ชายฝั่งของบริเตนยาวเท่าไร”</p><p>ลองเดินวงเวียนวัดไปตามชายฝั่งสมมุติข้างล่าง ลดไม้บรรทัดลงครึ่งหนึ่ง ชายฝั่งจะยาวขึ้นราวหนึ่งในห้า พล็อตความยาวกับขนาดไม้บรรทัดบนสเกลลอการิทึม จุดจะเรียงเป็นเส้นตรง หนึ่งลบความชันคือมิติ เส้นโค้งเรียบได้ 1 ชายฝั่งนี้ได้ราว 1.26 และชายฝั่งตะวันตกของบริเตนได้ราว 1.25 ตามตัวเลขของริชาร์ดสัน</p>
+<canvas id="coastcv" class="cv wide" role="img" aria-label="วัดความยาวชายฝั่ง"></canvas>
+<div class="two" style="margin-top:18px"><div><label class="lab" for="cruler">ไม้บรรทัด <b id="crulerv"></b></label><input id="cruler" type="range" min="0" max="1" step="0.001" value="0.209">
+<div class="btns"><button id="cnew" class="pill" type="button">ชายฝั่งใหม่</button></div>
+<div class="readout"><div><span>ก้าว</span><b id="csteps">–</b></div><div><span>ความยาว</span><b id="clen">–</b></div><div><span>มิติ</span><b id="cdim">–</b></div></div></div>
+<div><canvas id="loglog" class="cv ll" role="img" aria-label="มิติ"></canvas></div></div><p class="note">ชายฝั่งนี้ยาว 1,000 กิโลเมตรจากปลายถึงปลาย ต่ำกว่าราว 2 กิโลเมตร ชายฝั่งสมมุติจะหมดรอยหยักและหยุดยาวขึ้น ชายฝั่งนอกบ้านหยักต่อลงไปถึงก้อนหินและเม็ดทราย</p></div></section>
+<section id="make" class="sec rock"><div class="in"><p class=kick>มิติ</p><h2>สร้างเอง</h2><p>ตัดเส้นตรงเป็น 3 ส่วน ได้สำเนา 3 ชิ้น ขนาดหนึ่งในสาม: 3 = 3¹ สี่เหลี่ยมจัตุรัสได้ 9 = 3² ลูกบาศก์ได้ 27 = 3³ เลขชี้กำลังคือมิติ เส้นโค้งค็อคได้สำเนา 4 ชิ้น ขนาดหนึ่งในสาม: 4 = 3<sup>D</sup> ดังนั้น D = log 4 / log 3 ≈ 1.26 อยู่ระหว่างเส้นกับระนาบ</p><p>ลากจุดบนเส้นหัก แตะบนเส้นเพื่อเพิ่มจุด แตะสองครั้งที่จุดเพื่อลบ เส้นตรงแต่ละท่อนจะถูกแทนด้วยเส้นหักทั้งเส้น ชั้นแล้วชั้นเล่า ถ้าท่อนยาว r₁, r₂, … มิติ D คือคำตอบของ r₁<sup>D</sup> + r₂<sup>D</sup> + … = 1</p>
+<div class="mgrid"><div><canvas id="gencv" class="cv gen" role="img" aria-label="ลากจุดได้"></canvas>
+<p class="lab">เริ่มจาก</p><div class="seg" role="group"><button class="pill" type="button" data-pre="0" aria-pressed="true">ค็อค</button><button class="pill" type="button" data-pre="1" aria-pressed="false">คลื่นเหลี่ยม</button><button class="pill" type="button" data-pre="2" aria-pressed="false">เลวี ซี</button><button class="pill" type="button" data-pre="3" aria-pressed="false">เปอาโน</button><button class="pill" type="button" data-pre="4" aria-pressed="false">ค็อคสูง</button></div><label class="lab" for="ylev">ชั้น <b id="ylevv"></b></label><input id="ylev" type="range" min="0" max="8" step="1" value="4">
+<div class="readout"><div><span>ท่อน</span><b id="ypieces">–</b></div><div><span>มิติ</span><b id="ydim">–</b></div><div><span>ส่วนของเส้น</span><b id="ysegs">–</b></div></div><div class="btns"><button id="ysave" class="pill" type="button">บันทึกภาพ</button></div><p class="note">ถ้าท่อนตัดกันหรือซ้อนทับกัน รูปจะเต็มน้อยกว่าที่ตัวเลขนี้บอก</p></div>
+<div><canvas id="makecv" class="cv mk" role="img" aria-label="สร้างเอง"></canvas></div></div></div></section>
+<section id="nature" class="sec "><div class="in"><p class=kick>นอกบ้าน</p><h2>พบในธรรมชาติ</h2><p>แฟร็กทัลในธรรมชาติหมดลงหลังไม่กี่ชั้น ที่ขนาดของเซลล์หรือผลึกน้ำแข็ง แต่ลวดลายยังเห็นชัด กะหล่ำโรมาเนสโกในภาษาไทยเรียกว่ากะหล่ำดอกเจดีย์</p><p>ลายไทยก็งอกเปลวบนเปลว ดูได้ที่ <a href="https://nanobotco.github.io/kranok/th/#nest">กนก วาดด้วยคณิต</a></p><div class="ph"><figure><img loading="lazy" src="../img/romanesco.jpg" width="1400" height="1120" alt="กะหล่ำดอกเจดีย์: กรวยซ้อนกรวย เรียงเป็นเกลียว"><figcaption>กะหล่ำดอกเจดีย์: กรวยซ้อนกรวย เรียงเป็นเกลียว <a href="https://commons.wikimedia.org/wiki/File:Romanesco_broccoli_(Brassica_oleracea).jpg">Ivar Leidus</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></figcaption></figure><figure><img loading="lazy" src="../img/fern.jpg" width="1400" height="1400" alt="ยอดเฟิร์นนกกระจอกเทศกำลังคลี่ ขดในขด"><figcaption>ยอดเฟิร์นนกกระจอกเทศกำลังคลี่ ขดในขด <a href="https://commons.wikimedia.org/wiki/File:Matteuccia_struthiopteris_fiddleheads.jpg">The Cosmonaut</a> · <a href="https://creativecommons.org/licenses/by-sa/2.5/ca/deed.en">CC BY-SA 2.5 ca</a></figcaption></figure><figure><img loading="lazy" src="../img/prang.jpg" width="910" height="1400" alt="พระปรางค์องค์กลาง วัดอรุณฯ กรุงเทพฯ: ปรางค์องค์เล็กรับปรางค์องค์ใหญ่ ซ้อนกันเป็นชั้น ๆ"><figcaption>พระปรางค์องค์กลาง วัดอรุณฯ กรุงเทพฯ: ปรางค์องค์เล็กรับปรางค์องค์ใหญ่ ซ้อนกันเป็นชั้น ๆ <a href="https://commons.wikimedia.org/wiki/File:Templo_Wat_Arun,_Bangkok,_Tailandia,_2013-08-22,_DD_28.jpg">Diego Delso</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></figcaption></figure><figure><img loading="lazy" src="../img/delta.jpg" width="1400" height="1400" alt="ปากแม่น้ำลีนา ไซบีเรีย จากดาวเทียมแลนด์แซต 7 ปี 2000"><figcaption>ปากแม่น้ำลีนา ไซบีเรีย จากดาวเทียมแลนด์แซต 7 ปี 2000 <a href="https://commons.wikimedia.org/wiki/File:Lena_River_Delta_-_Landsat_2000.jpg">NASA / USGS EROS Data Center (Landsat 7)</a> · Public domain</figcaption></figure><figure><img loading="lazy" src="../img/lightning.jpg" width="1400" height="933" alt="ฟ้าแลบเหนือเมืองออลเบอรี รัฐนิวเซาท์เวลส์ แตกกิ่งไปตลอดทาง"><figcaption>ฟ้าแลบเหนือเมืองออลเบอรี รัฐนิวเซาท์เวลส์ แตกกิ่งไปตลอดทาง <a href="https://commons.wikimedia.org/wiki/File:CC_lightning,_Albury_NSW.JPG">Thennicke</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></figcaption></figure><figure><img loading="lazy" src="../img/snowflake.jpg" width="1095" height="1400" alt="เกล็ดหิมะที่วิลสัน เบนต์ลีย์ ถ่ายไว้ที่รัฐเวอร์มอนต์ ปี 1902"><figcaption>เกล็ดหิมะที่วิลสัน เบนต์ลีย์ ถ่ายไว้ที่รัฐเวอร์มอนต์ ปี 1902 <a href="https://commons.wikimedia.org/wiki/File:SnowflakesWilsonBentley.jpg">Wilson Bentley</a> · Public domain</figcaption></figure><figure><img loading="lazy" src="../img/tree.jpg" width="1089" height="1400" alt="ต้นจามจุรีในอุทยานประวัติศาสตร์สุโขทัย"><figcaption>ต้นจามจุรีในอุทยานประวัติศาสตร์สุโขทัย <a href="https://commons.wikimedia.org/wiki/File:A_big_tree_(Albizia_saman)_@_Sukhothai_Historical_park_,_%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%88%E0%B8%B2%E0%B8%A1%E0%B8%88%E0%B8%B8%E0%B8%A3%E0%B8%B5_-_panoramio.jpg">::::=UT=::::</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></figcaption></figure></div></div></section>
+<section id="history" class="sec dark"><div class="in"><p class=kick>ประวัติ</p><h2>จากสัตว์ประหลาดสู่ภาพ</h2><ol class="tl"><li><b>1883</b><span>เกออร์ก คันทอร์ เอาเส้นตรงมาตัดหนึ่งในสามตรงกลางออก แล้วตัดหนึ่งในสามตรงกลางของส่วนที่เหลือ ไม่รู้จบ เหลือเป็นผงฝุ่น</span></li><li><b>1904</b><span>เส้นโค้งเกล็ดหิมะของเฮลเกอ ฟอน ค็อค เส้นโค้งที่ไม่มีเส้นสัมผัสที่จุดใดเลย</span></li><li><b>1915</b><span>สามเหลี่ยมของวาตสวัฟ เซียร์ปินสกี</span></li><li><b>1918</b><span>กัสตอง จูเลีย และปีแยร์ ฟาตู คิดเรื่องเซตจูเลียบนกระดาษ</span></li><li><b>1961</b><span>ผลการวัดชายฝั่งและพรมแดนของลูอิส ฟราย ริชาร์ดสัน ได้ตีพิมพ์</span></li><li><b>1967</b><span>ม็องแดลโบรตถามว่าชายฝั่งของบริเตนยาวเท่าไร คอลัมน์ของมาร์ติน การ์ดเนอร์ ลงเรื่องเส้นโค้งมังกร</span></li><li><b>1975</b><span>ม็องแดลโบรตตั้งคำว่าแฟร็กทัล</span></li><li><b>1978</b><span>โรเบิร์ต บรูกส์ และปีเตอร์ มาเทลสกี พิมพ์ภาพแรกของเซตม็องแดลโบรต</span></li><li><b>1980</b><span>ภาพจากคอมพิวเตอร์ของม็องแดลโบรตที่ IBM</span></li><li><b>1982</b><span>หนังสือ <i>The Fractal Geometry of Nature</i></span></li><li><b>1988</b><span>หนังสือ <i>Fractals Everywhere</i> ของไมเคิล บาร์นสลีย์: เฟิร์นและเกมความอลวน</span></li><li><b>1998</b><span>มิตสึฮิโระ ชิชิกุระ: ขอบของเซตม็องแดลโบรตมีมิติเท่ากับ 2</span></li></ol></div></section>
+<section id="words" class="sec "><div class="in"><h2>คำศัพท์</h2><div class="glos"><div><b>แฟร็กทัล</b><i>fractal</i><p>รูปที่มีสำเนาขนาดเล็กของตัวเองอยู่ข้างใน</p></div><div><b>คล้ายตัวเอง</b><i>self-similar</i><p>ส่วนหนึ่งหน้าตาเหมือนทั้งหมด</p></div><div><b>ทำซ้ำ</b><i>iterate</i><p>ป้อนคำตอบกลับเข้ากฎเดิม</p></div><div><b>มิติ</b><i>dimension</i><p>เลขชี้กำลัง D ใน จำนวนสำเนา = อัตราย่อ<sup>D</sup></p></div><div><b>จำนวนเชิงซ้อน</b><i>complex number</i><p>จำนวนที่มีสองส่วน วาดเป็นจุดบนระนาบ</p></div><div><b>เวลาหนี</b><i>escape time</i><p>จำนวนรอบก่อน z ออกนอกวงกลมรัศมี 2</p></div><div><b>เกมความอลวน</b><i>chaos game</i><p>การกระโดดแบบสุ่มที่วาดภาพตายตัว</p></div><div><b>ระบบฟังก์ชันวนซ้ำ</b><i>iterated function system</i><p>ชุดท่าที่ย่อภาพ อย่างในเฟิร์น</p></div><div><b>ปฏิทรรศน์แนวชายฝั่ง</b><i>coastline paradox</i><p>ความยาวชายฝั่งขึ้นกับไม้บรรทัด</p></div><div><b>เกล็ดหิมะค็อค</b><i>Koch snowflake</i><p>เส้นรอบรูปยาวไม่รู้จบ พื้นที่ 8/5 ของสามเหลี่ยม</p></div><div><b>สามเหลี่ยมเซียร์ปินสกี</b><i>Sierpiński triangle</i><p>สำเนา 3 ชิ้นขนาดครึ่งหนึ่ง มิติ 1.585</p></div><div><b>เส้นโค้งมังกร</b><i>dragon curve</i><p>กระดาษพับครึ่งซ้ำ ๆ ขอบมีมิติ 1.524</p></div><div><b>เซตม็องแดลโบรต</b><i>Mandelbrot set</i><p>จุด c ที่เส้นทางจากศูนย์วนอยู่ใกล้บ้าน</p></div><div><b>เซตจูเลีย</b><i>Julia set</i><p>สำหรับ c ค่าหนึ่ง คือจุดเริ่มที่วนอยู่ใกล้บ้าน</p></div><div><b>กะหล่ำดอกเจดีย์</b><i>Romanesco</i><p>กะหล่ำที่มีกรวยประกอบจากกรวย</p></div></div></div></section>
+<section id="sources" class="sec "><div class="in"><h2>แหล่งข้อมูล</h2><p>ข้อเท็จจริงในหน้านี้มาจากแหล่งเหล่านี้ ภาพถ่ายมาจากวิกิมีเดียคอมมอนส์ ให้เครดิตไว้ใต้ภาพแต่ละภาพ</p><ul class="src"><li><a href="https://doi.org/10.1126/science.156.3775.636">Mandelbrot (1967), How Long Is the Coast of Britain? Science 156</a></li><li><a href="https://doi.org/10.2307/121009">Shishikura (1998), The Hausdorff dimension of the boundary of the Mandelbrot set and Julia sets, Annals of Mathematics 147</a></li><li><a href="https://en.wikipedia.org/wiki/Fractal">Wikipedia: Fractal</a></li><li><a href="https://en.wikipedia.org/wiki/The_Fractal_Geometry_of_Nature">Wikipedia: The Fractal Geometry of Nature</a></li><li><a href="https://en.wikipedia.org/wiki/Koch_snowflake">Wikipedia: Koch snowflake</a></li><li><a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Wikipedia: Sierpiński triangle</a></li><li><a href="https://en.wikipedia.org/wiki/Chaos_game">Wikipedia: Chaos game</a></li><li><a href="https://en.wikipedia.org/wiki/Barnsley_fern">Wikipedia: Barnsley fern</a></li><li><a href="https://en.wikipedia.org/wiki/Dragon_curve">Wikipedia: Dragon curve</a></li><li><a href="https://en.wikipedia.org/wiki/Regular_paperfolding_sequence">Wikipedia: Regular paperfolding sequence</a></li><li><a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Wikipedia: Mandelbrot set</a></li><li><a href="https://en.wikipedia.org/wiki/Julia_set">Wikipedia: Julia set</a></li><li><a href="https://en.wikipedia.org/wiki/Coastline_paradox">Wikipedia: Coastline paradox</a></li><li><a href="https://en.wikipedia.org/wiki/Lewis_Fry_Richardson">Wikipedia: Lewis Fry Richardson</a></li><li><a href="https://en.wikipedia.org/wiki/Cantor_set">Wikipedia: Cantor set</a></li><li><a href="https://en.wikipedia.org/wiki/List_of_fractals_by_Hausdorff_dimension">Wikipedia: List of fractals by Hausdorff dimension</a></li><li><a href="https://th.wikipedia.org/wiki/%E0%B9%81%E0%B8%9F%E0%B8%A3%E0%B9%87%E0%B8%81%E0%B8%97%E0%B8%B1%E0%B8%A5">วิกิพีเดีย: แฟร็กทัล</a></li><li><a href="https://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%B0%E0%B8%AB%E0%B8%A5%E0%B9%88%E0%B8%B3%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C">วิกิพีเดีย: กะหล่ำดอกเจดีย์</a></li><li><a href="https://commons.wikimedia.org/">Wikimedia Commons</a></li></ul></div></section>
+</main><footer class="bot"><div class="in">ข้อความ CC BY 4.0, NaNoBotCo โค้ด MIT ภาพถ่ายใช้สัญญาอนุญาตของแต่ละภาพ · <a href="https://github.com/NaNoBotCo/fractals">GitHub</a> · <a href="https://motdang.net/">motdang.net</a> · <a href="https://hongdam.net/">hongdam.net</a></div></footer>
+<script>window.UI={"growing": "และยังโตต่อ", "inside": "อยู่ใน", "outside": "อยู่นอก", "m_stays": "วนอยู่ใกล้บ้าน", "m_leaves": "หนีออกที่รอบ {n}", "j_one": "ชิ้นเดียว", "j_dust": "ผงฝุ่น", "d_R": "ข", "d_L": "ซ", "d_unfold": "คลี่", "km": "กม.", "c_axis_x": "ไม้บรรทัด กม.", "c_axis_y": "ความยาว กม.", "y_hint": "ลากจุดได้", "places": ["ทั้งตัว", "หุบม้าน้ำ", "หุบช้าง", "เกลียวคู่", "ม็องแดลโบรตจิ๋ว", "สายฟ้า"], "colours": ["ทอง", "ทะเล", "ไฟ", "ลูกกวาด"], "lang": "th"};</script>
+<script src="../gl.js"></script><script src="../app.js"></script><script src="../top.js"></script>
+</body></html>
